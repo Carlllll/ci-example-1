@@ -28,8 +28,8 @@ public class CalculatorTest {
 	@Test
 	public void testCalculatorMul() {
 		Calculator calc = new Calculator();
-		int output = calc.calculate("(2*6)+1");
-		assertThat(output, is(13));
+		int output = calc.calculate("(2+6)*2");
+		assertThat(output, is(16));
 	}
 
 	@Test
