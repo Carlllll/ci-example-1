@@ -71,15 +71,26 @@ public class Calculator {
 		}
 
 		else if (exp.contains(sub)) {
-			StringTokenizer token = new StringTokenizer(exp, sub);
-			int temp = calculate(token.nextToken());
-			while (token.hasMoreTokens()) {
-				String val = token.nextToken();
-				temp = temp - calculate(val);
+			StringTokenizer st = new StringTokenizer(exp, "-");
+			String val = st.nextToken();
+			char set = val.charAt(val.length() - 1);
+			int temp;
+			if (set == '*' || set == '/') {
+				temp = calculate(st.nextToken());
+				val = val + Integer.toString(temp);
+				temp = -calculate(val);
+			} else {
+				temp = calculate(val);
+				if (!st.hasMoreTokens()) {
+					temp = -temp;
+				}
+			}
+			while (st.hasMoreTokens()) {
+				String n = st.nextToken();
+				temp = temp - calculate(n);
 			}
 			num = temp;
 		}
-
 		else if (exp.contains(mul)) {
 			StringTokenizer token = new StringTokenizer(exp, mul);
 			int temp = calculate(token.nextToken());
