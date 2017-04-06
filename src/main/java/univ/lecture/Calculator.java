@@ -51,6 +51,16 @@ public class Calculator {
 			} 
 			num = temp;
 		}
+		
+		else if (exp.contains(div)) {
+			StringTokenizer token = new StringTokenizer(exp, div);
+			int temp = calculate(token.nextToken());
+			while (token.hasMoreTokens()) {
+				String val = token.nextToken();
+				temp = temp / calculate(val);
+			}
+			num = temp;
+		}
 
 
 		else {
