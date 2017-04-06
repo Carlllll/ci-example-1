@@ -31,4 +31,4 @@ public class Application {
         new Application().calculator(args);
 	}
 }
-    
+   
