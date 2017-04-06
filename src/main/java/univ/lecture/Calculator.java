@@ -37,7 +37,7 @@ public class Calculator {
 			int temp = calculate(token.nextToken());
 			while (token.hasMoreTokens()) {
 				String val = token.nextToken();
-				temp = temp * calculate(val);
+				temp = temp - calculate(val);
 			}
 			num = temp;
 		}
