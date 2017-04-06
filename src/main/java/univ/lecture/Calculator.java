@@ -41,6 +41,17 @@ public class Calculator {
 			}
 			num = temp;
 		}
+		
+		else if (exp.contains(mul)) { 
+			StringTokenizer token = new StringTokenizer(exp, mul); 
+			int temp = calculate(token.nextToken()); 
+			while (token.hasMoreTokens()) { 
+				String val = token.nextToken(); 
+				temp= temp * calculate(val); 
+			} 
+			num = temp;
+		}
+
 
 		else {
 			num = Integer.parseInt(exp);
