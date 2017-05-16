@@ -56,7 +56,9 @@ public class Calculator {
             exp = string2;
 		}
 
-		if (exp.contains(sum)) {
+
+
+		if (isContainSum(exp, sum)) {
 			StringTokenizer token = new StringTokenizer(exp, sum);
 
 			int temp = calculate(token.nextToken());
@@ -70,7 +72,9 @@ public class Calculator {
 
 		}
 
-		else if (exp.contains(sub)) {
+
+
+		else if (isContainSub(exp, sub)) {
 			StringTokenizer st = new StringTokenizer(exp, "-");
 			String val = st.nextToken();
 			char set = val.charAt(val.length() - 1);
@@ -90,7 +94,13 @@ public class Calculator {
 				temp = temp - calculate(n);
 			}
 			num = temp;
-		} else if (exp.contains(mul)) {
+		}
+
+
+
+
+
+		else if (isContainMul(exp, mul)) {
 			StringTokenizer token = new StringTokenizer(exp, mul);
 			int temp = calculate(token.nextToken());
 			while (token.hasMoreTokens()) {
@@ -100,7 +110,9 @@ public class Calculator {
 			num = temp;
 		}
 
-		else if (exp.contains(div)) {
+
+
+		else if (isContainDiv(exp, div)) {
 			StringTokenizer token = new StringTokenizer(exp, div);
 			int temp = calculate(token.nextToken());
 			while (token.hasMoreTokens()) {
@@ -115,6 +127,22 @@ public class Calculator {
 		}
 		return num;
 	}
+
+    private boolean isContainDiv(String exp, String div) {
+        return exp.contains(div);
+    }
+
+    private boolean isContainMul(String exp, String mul) {
+        return exp.contains(mul);
+    }
+
+    private boolean isContainSub(String exp, String sub) {
+        return exp.contains(sub);
+    }
+
+    private boolean isContainSum(String exp, String sum) {
+        return exp.contains(sum);
+    }
 
     private boolean isContainRightParenthesis(String exp) {
         return exp.contains(")");
