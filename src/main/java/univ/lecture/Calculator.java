@@ -21,7 +21,7 @@ public class Calculator {
 		String div = "/";
 
 
-		if (exp.contains(")")) {
+		if (isContainRightParenthesis(exp)) {
 			Stack cal_stack = new Stack();
 
 			int ref = 0;
@@ -115,6 +115,10 @@ public class Calculator {
 		}
 		return num;
 	}
+
+    private boolean isContainRightParenthesis(String exp) {
+        return exp.contains(")");
+    }
 
     private String isCalstackEmpty(Stack cal_stack, String string2) {
         while (!cal_stack.empty()) {
