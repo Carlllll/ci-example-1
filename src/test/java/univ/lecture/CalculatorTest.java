@@ -38,4 +38,11 @@ public class CalculatorTest {
 		int output = calc.calculate("8/2");
 		assertThat(output, is(4));
 	}
+
+    @Test
+    public void testCalculatorDivandMul() {
+        Calculator calc = new Calculator();
+        int output = calc.calculate("(8/2)*3");
+        assertThat(output, is(12));
+    }
 }
